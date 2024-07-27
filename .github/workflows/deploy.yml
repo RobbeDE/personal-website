@@ -25,5 +25,5 @@ jobs:
       working-directory: C:\Users\robbe\OneDrive\Documenten\Persoonlijke projecten\personal-website
 
     - name: Copy build to target directory
-      run: cp -rf build/* W:\users
+      run: cp -r -Force build/* W:\users
       working-directory: C:\Users\robbe\OneDrive\Documenten\Persoonlijke projecten\personal-website
