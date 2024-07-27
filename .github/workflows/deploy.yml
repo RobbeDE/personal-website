@@ -1,0 +1,26 @@
+name: Build en Deploy React App to UGent file share
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build React app
+      run: npm run build
+
+    - name: Copy build to target directory
+      run: cp -r build/* W:\users
