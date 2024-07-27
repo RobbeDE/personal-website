@@ -22,5 +22,5 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Copy build to target directory
-      run: cp -r build/* W:\users
+    # - name: Copy build to target directory
+    #   run: cp -r build/* W:\users
