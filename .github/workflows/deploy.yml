@@ -17,19 +17,13 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: |
-        echo "Installing dependencies..."
-        npm install
+      run: npm install
       working-directory: C:\Users\robbe\OneDrive\Documenten\Persoonlijke projecten\personal-website
 
     - name: Build React app
-      run: |
-        echo "Building React app..."
-        npm run build
+      run: npm run build
       working-directory: C:\Users\robbe\OneDrive\Documenten\Persoonlijke projecten\personal-website
 
     - name: Copy build to target directory
-      run: |
-        echo "Copying build files to target directory..."
-        cp -r build/* W:\users
+      run: cp /y -r build/* W:\users
       working-directory: C:\Users\robbe\OneDrive\Documenten\Persoonlijke projecten\personal-website
