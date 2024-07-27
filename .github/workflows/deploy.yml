@@ -3,10 +3,10 @@ name: Build en Deploy React App to UGent file share
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
