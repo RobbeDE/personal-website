@@ -156,15 +156,5 @@ You might need to set up proper routes and permissions on the server to handle t
 
 By following these steps, you can ensure that your interactive apps are built and deployed along with your main application, providing a seamless user experience on your website.
 
-<h3>Summary</h3>
-
-This README file now includes instructions on:
-
-Specifying the homepage attribute in package.json.
-
-Setting up and configuring a self-hosted runner.
-
-Deploying interactive apps on your website.
-
 # personal-website
 Personal website which will be deployed at users.ugent.be/~rodpicke.
