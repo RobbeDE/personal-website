@@ -68,5 +68,93 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<h3>Additional Information</h3> 
+
+### Setting the homepage Attribute
+
+To ensure your app correctly resolves paths, set the homepage attribute in your package.json to the URL where your app will be hosted. For example:
+
+```json 
+
+{
+  "homepage": "https://users.ugent.be/~rodpicke"
+}
+```
+This helps in generating the correct URLs for the assets in your app during the build process.
+
+Setting Up the Self-Hosted Runner
+
+To set up a self-hosted runner and configure the deploy.yml file for your deployment needs, follow these steps:
+
+#1-Install the Runner:
+
+Navigate to your repository on GitHub.
+
+Go to "Settings" > "Actions" > "Runners".
+
+Follow the instructions to download and install the runner on your server.
+
+#2-Configure deploy.yml:
+
+In your repository, navigate to .github/workflows/deploy.yml.
+
+Customize the file to suit your deployment needs. Here's an example configuration:
+
+```
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    -runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy to server
+        run: |
+          rsync -avh --delete build/ user@your-server:/path/to/deploy
+```
+
+
+<h3>Additional Configuration for the Runner</h3>
+
+Ensure your self-hosted runner has the necessary permissions and access to the repository. Additionally, make sure the deployment directory on your server has the correct permissions to receive the new build files.
+
+Deploying Interactive Apps
+
+#1-To deploy interactive apps on your website, follow these steps:
+
+Include Interactive Apps in the Build Process:Ensure that your interactive apps are included in the main build process.
+
+This might involve importing and using the interactive components in your main React application.
+
+#2-Deploy Built Assets:
+
+Use the deployment script in deploy.yml to deploy the built assets to your server.
+
+For example, the rsync command in the script above transfers the contents of the build/ directory to the specified path on your server.
+
+#3-Configure Server to Serve Interactive Apps:
+
+Ensure your server is configured to serve the static files correctly.
+
+You might need to set up proper routes and permissions on the server to handle the interactive app requests.
+
+By following these steps, you can ensure that your interactive apps are built and deployed along with your main application, providing a seamless user experience on your website.
+
 # personal-website
 Personal website which will be deployed at users.ugent.be/~rodpicke.
